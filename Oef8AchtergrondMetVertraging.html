@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oef1</title>
+
+    <script>
+        function start() {
+
+            let hoogte = document.getElementById("invoer1").value;
+            let breedte = document.getElementById("invoer2").value;
+            let tabel = "";
+            let t;
+
+            for (let h = 1; h <= hoogte; h++) {
+                tabel = tabel + "<tr>";
+
+                for (let b = 1; b <= breedte; b++) {
+
+                    tabel = tabel + "<td id='A" + h + b + "' onmouseover= muisover('A" + h + b + "') onmouseout= muisout('A" + h + b + "')>" + h + "-" + b + "</td>";
+                }
+
+                tabel = tabel + "</tr>";
+            }
+            document.getElementById("tbl").innerHTML = tabel;
+        }
+
+        function muisover(ident) {
+            document.getElementById(ident).style.backgroundColor = "red";
+
+
+        }
+
+        function muisout(ident) {
+            setTimeout("wit('"+ident+"')", 500);
+        }
+
+        function wit(ident) {
+            document.getElementById(ident).style.backgroundColor = "white";
+        }
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+
+    <label>Hoogte</label><input type="number" id="invoer1"><br>
+    <label>Breedte</label><input type="number" id="invoer2"><br>
+    <input type="button" value="start" onclick="start()"><br>
+
+
+    <table id="tbl" border="1"></table>
+
+
+
+
+</body>
+
+</html>
